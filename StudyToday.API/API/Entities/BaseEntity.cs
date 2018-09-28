@@ -10,6 +10,7 @@ namespace API.Entities
     {
         [Key]
         public Guid Id { get; set; }
-      
+        
+        public DateTimeOffset CreatedAt { get; set; }
     }
 }

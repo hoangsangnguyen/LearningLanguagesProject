@@ -24,10 +24,8 @@ namespace API.Infrastructure
                 .ForMember(d => d.TopicName, opt => opt.MapFrom(x =>
                     x.Topic.Title));
 
-            CreateMap<LessonDto, Lesson>()
-                .ForMember(d => d.CreatedAt,
-                    opt => opt.MapFrom(x =>
-                        string.IsNullOrEmpty(x.CreatedAt) ? (DateTimeOffset?)null : DateTimeOffset.ParseExact(x.CreatedAt, "dd/MM/yyyy", new CultureInfo("vi-VN"))))
+            CreateMap<LessonForCreationDto, Lesson>()
+                .ForMember(d => d.CreatedAt, opt => opt.Ignore())
                 .ForMember(d => d.Id, opt => opt.Ignore());
 
             CreateMap<Card, CardDto>()
@@ -36,10 +34,8 @@ namespace API.Infrastructure
                    .ForMember(d => d.CardTypeName, opt => opt.MapFrom( x => x.CardType.Type))
                    .ForMember(d => d.LessonName, opt => opt.MapFrom( x => x.Lesson.Title));
 
-            CreateMap<CardDto, Card>()
-                .ForMember(d => d.CreatedAt,
-                    opt => opt.MapFrom(x =>
-                        string.IsNullOrEmpty(x.CreatedAt) ? (DateTimeOffset?)null : DateTimeOffset.ParseExact(x.CreatedAt, "dd/MM/yyyy", new CultureInfo("vi-VN"))))
+            CreateMap<CardForCreationDto, Card>()
+                .ForMember(d => d.CreatedAt, opt => opt.Ignore())
                 .ForMember(d => d.Id, opt => opt.Ignore());
 
         }

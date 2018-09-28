@@ -14,8 +14,6 @@ namespace API.Entities
         public Guid UserId { get; set; }
         public virtual UserEntity User { get; set; }
 
-        public DateTimeOffset CreatedAt { get; set; }
-
         public bool Deleted { get; set; }
 
         private ICollection<Comment> _comments;

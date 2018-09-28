@@ -107,6 +107,8 @@ namespace API.Services
 
             var newEntity = Mapper.Map<TEntity>(creationDto);
 
+            newEntity.CreatedAt = DateTimeOffset.Now;
+
             var result = await _entities.AddAsync(newEntity);
 
             var created = await _context.SaveChangesAsync();

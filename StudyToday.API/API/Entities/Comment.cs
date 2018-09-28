@@ -14,8 +14,6 @@ namespace API.Entities
         public Guid PostId { get; set; }
         public virtual Post Post { get; set; }
 
-        public DateTimeOffset CreatedAt { get; set; }
-
         public bool Deleted { get; set; }
 
     }

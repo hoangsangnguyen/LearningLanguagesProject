@@ -15,15 +15,15 @@ namespace API.Controllers
 {
     [Route("Lessons")]
     [Authorize]
-    public class LessonsController : GenericController<Lesson, LessonDto, LessonDto>
+    public class LessonsController : GenericController<Lesson, LessonDto, LessonForCreationDto>
     {
         private readonly DatabaseContext _context;
-        private readonly IGenericRepository<Lesson, LessonDto, LessonDto> _genericRepository;
+        private readonly IGenericRepository<Lesson, LessonDto, LessonForCreationDto> _genericRepository;
         private readonly DbSet<Lesson> _entity;
         private static readonly HttpClient client = new HttpClient();
 
 
-        public LessonsController(IGenericRepository<Lesson, LessonDto, LessonDto> genericRepository, DatabaseContext context) : base(genericRepository, context)
+        public LessonsController(IGenericRepository<Lesson, LessonDto, LessonForCreationDto> genericRepository, DatabaseContext context) : base(genericRepository, context)
         {
             _genericRepository = genericRepository;
             _context = context;

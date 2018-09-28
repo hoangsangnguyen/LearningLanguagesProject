@@ -15,15 +15,15 @@ namespace API.Controllers
 {
     [Route("Cards")]
     [Authorize]
-    public class CardsController : GenericController<Card, CardDto, CardDto>
+    public class CardsController : GenericController<Card, CardDto, CardForCreationDto>
     {
         private readonly DatabaseContext _context;
-        private readonly IGenericRepository<Card, CardDto, CardDto> _genericRepository;
+        private readonly IGenericRepository<Card, CardDto, CardForCreationDto> _genericRepository;
         private readonly DbSet<Card> _entity;
         private static readonly HttpClient client = new HttpClient();
 
 
-        public CardsController(IGenericRepository<Card, CardDto, CardDto> genericRepository, DatabaseContext context) : base(genericRepository, context)
+        public CardsController(IGenericRepository<Card, CardDto, CardForCreationDto> genericRepository, DatabaseContext context) : base(genericRepository, context)
         {
             _genericRepository = genericRepository;
             _context = context;
@@ -39,5 +39,6 @@ namespace API.Controllers
            || x.Content.Contains(keyword));
             return base.GetListAsync(offset, limit, keyword, sortOptions, filterOptions, querySearch);
         }
+
     }
 }

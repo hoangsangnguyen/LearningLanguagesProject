@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
 
-namespace API.Entities
+namespace API.Models
 {
-    public class Card : BaseEntity
+    public class CardForCreationDto
     {
         public string Title { get; set; }
 
         public string ImageUrl { get; set; }
 
         public Guid CardTypeId { get; set; }
-        public virtual CardType CardType { get; set; }
 
         public string Content { get; set; }
 
@@ -21,8 +19,6 @@ namespace API.Entities
         public int OrderIndex { get; set; }
 
         public Guid LessonId { get; set; }
-        public virtual Lesson Lesson { get; set; }
 
-        public bool Deleted { get; set; }
     }
 }
